@@ -1,0 +1,14 @@
+<header class="bg-white shadow py-4">
+    <div class="container flex items-center justify-between">
+        <h4 class="font-bold text-lg">MY APP</h4>
+        <div class="flex gap-3">
+            @if(isAuthenticated$ | async){
+            <div class="px-2 cursor-pointer" (click)="onAttributes()">Attributes</div>
+            <div class="px-2 cursor-pointer" (click)="onLogout()">Logout</div>
+            <div class="px-2 cursor-pointer" (click)="onArticles()">Articles</div>
+            }@else {
+                <div class="px-2 cursor-pointer">Login</div>
+            }
+        </div>
+    </div>
+</header>

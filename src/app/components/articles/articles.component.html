@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<h4>Add Attribute for Article</h4>
+<form (submit)="addAttribute()">
+  <label>
+    <label>
+      Name:
+      <select [(ngModel)]="selectedAttributeName" name="selectedAttributeName" required style="width: 120px;">
+        <option *ngFor="let attributeName of attributeNames" [value]="attributeName.name">
+          {{ attributeName.name + " [ " }}
+          <ng-container *ngIf="attributeName.unit">{{ attributeName.unit.name }}</ng-container>
+          {{ " ]" }}
+        </option>
+      </select>
+  </label><br>
+  </label>
+  <label>
+    Value:
+    <input type="text" [(ngModel)]="newAttributeValue" name="value" required><br>
+  </label>
+  <button type="submit">Add Attribute</button>
+</form>
+
+
+<h2>Add Article</h2>
+<form (submit)="addArticle()">
+  <label>
+    Code:
+    <input type="text" [(ngModel)]="newArticle.code" name="code" required><br>
+  </label>
+  <label>
+    Name:
+    <input type="text" [(ngModel)]="newArticle.name" name="name" required><br>
+  </label>
+  <label>
+    Type:
+    <input type="text" [(ngModel)]="newArticle.type" name="type" required><br>
+  </label>
+  <label>
+    Unit:
+    <input type="text" [(ngModel)]="newArticle.unit" name="unit" required><br>
+  </label>
+
+  <h4>Added Attributes</h4>
+<ul *ngIf="showAttributes">
+  <li *ngFor="let attribute of newArticle.attributes">
+    {{ attribute.name }} : {{ attribute.value }}
+  </li>
+</ul>
+  
+  <button type="submit">Add Article</button>
+</form>
+
+<h2>Articles</h2>
+
+<div>
+  <input type="text" placeholder="Name" [(ngModel)]="searchName">
+  <input type="text" placeholder="Code" [(ngModel)]="searchCode">
+  <input type="text" placeholder="Type" [(ngModel)]="searchType">
+  <input type="text" placeholder="Unit" [(ngModel)]="searchUnit">
+
+  <button (click)="filterArticles()">Search</button>
+  <button (click)="resetAllFilters()">View All</button>
+</div>
+
+
+<ul *ngFor="let article of articles">
+  <li>
+    <strong>Code:</strong> {{ article.code }} <br>
+    <strong>Name:</strong> {{ article.name }} <br>
+    <strong>Type:</strong> {{ article.type.name }} <br>
+    <strong>Unit:</strong> {{ article.unit.name }} <br>
+    <strong>Attributes:</strong>
+    <ul *ngFor="let attribute of article.attributes; let i = index">
+      <li>{{ attribute.name }}: {{ attribute.value }} </li>
+    </ul>
+  </li>
+</ul>

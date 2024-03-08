@@ -1,0 +1,21 @@
+.column-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .column {
+    flex: 1;
+    padding: 0 10px;
+  }
+
+  .article {
+    margin-bottom: 20px;
+  }
+
+  .article div {
+    margin-bottom: 10px;
+  }
+
+  .article div strong {
+    font-weight: bold;
+  }

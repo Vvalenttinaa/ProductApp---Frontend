@@ -1,0 +1,14 @@
+<app-header></app-header>
+    
+<div class="container mt-4 grid grid-cols-10 gap-4">
+    <div class="bg-gray-100 p-4 rounded col-span-3">
+        <h2 class="text-lg font-semibold mb-2">App Attributes</h2>
+        <button (click)="openAddDialog()">Add new attribute</button>
+        <ul>
+            <li *ngFor="let attribute of attributes">
+              {{ attribute.name }}
+              <span *ngIf="attribute.unitName"> - {{ attribute.unitName }}</span>
+            </li>
+        </ul>
+    </div>
+</div>

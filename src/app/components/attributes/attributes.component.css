@@ -1,0 +1,25 @@
+.container {
+    text-align: center; 
+  }
+  
+  .form-container {
+    margin-bottom: 20px; 
+  }
+  
+  .input-label {
+    margin: 0; 
+  }
+  
+  .input-field {
+    margin-bottom: 0; 
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .action-button {
+    margin: 0 5px; 
+  }
+  
